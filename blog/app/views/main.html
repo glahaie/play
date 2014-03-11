@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/vendor/bootstrap.min.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/vendor/jquery-2.1.0.min.js'}" type="text/javascript"></script>
+        <script src="@{'/public/javascripts/vendor/bootstrap.min.js'}" type="text/javascript"></script>
+<!--        #{get 'moreScripts' /} -->
+    </head>
+    <body>
+        #{doLayout /}
+    </body>
+</html>

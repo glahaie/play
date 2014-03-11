@@ -1,0 +1,67 @@
+#{extends "main.html" /}
+#{set title:"Modification de " + article.titre /}
+#{script 'verification.js' /}
+#{script 'modifier.js' /}
+#{stylesheet 'style.css' /}
+
+<div class="container">
+    <div class="col-12 col-sm-12">
+        <div class="jumbotron">
+            <h1 class="text-center">Modification de:</h1>
+            <h2 class="text-center" id="jumbo">${article.titre}</h2>
+        </div>
+            
+            
+        <div id="alert-placeholder"></div>
+            <form id="article" role="form" class="well">
+                <div class="form-group">
+                    <label for="_id">Identifiant</label>
+                    <input class="form-control" id="_id" type="text" value="${article.identifiant}" readonly />
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input class="form-control" id="date" type="text" value="${article.formatDate()}" readonly />
+                </div>
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <input class="form-control" id="titre" type="text" value="${article.titre}" />
+                </div>
+                <div class="form-group">
+                    <label for="auteur">Auteur</label>
+                    <input class="form-control" id="auteur" type="text" value="${article.auteur}" />
+                </div>
+                <div class="form-group">
+                    <label for="texte">Texte</label>
+                    <textarea class="form-control" id="texte" rows=10>${article.texte}</textarea>
+                </div>
+                <button class="btn btn-primary" id="enregistrer" type="submit"> Enregistrer l'article</button>
+                <button class="btn btn-primary" id="supprimerDialogue" data-toggle="modal" data-target="#myModal">
+                     Supprimer l'article
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Confirmation de la suppression d'un article: modal
+    //de bootstrap, d'après
+-->
+<div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop='static' 
+    data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-hidden='true'>&times;</button>
+                <h4 class="modal-title> id="myModalLabel">Supprimer l'article</h4>
+                <div class="modal-body">
+                    <p> Veuillez confirmer que vous voulez bien supprimer l'article ${article.titre}</p>
+                    <div class="modal-footer">
+                        <button id="annuler" class="btn btn-default" data-dismiss='modal'>Annuler</button>
+                        <button id="supprimer" class="btn btn-primary">Supprimer l'article</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

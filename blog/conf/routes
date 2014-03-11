@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+
+#Pour le blog
+GET     /admin/publier                          Application.publier
+
+POST    /admin/ajouter                          Application.ajouter
+
+PUT     /admin/modifier                         Application.modifier
+
+DELETE  /admin/effacer                          Application.effacer
+
+GET     /{idBlog}                               Application.blog
+
+GET     /admin/{idBlog}                          Application.modifBlog
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

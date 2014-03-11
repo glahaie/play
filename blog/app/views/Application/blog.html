@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title: 'Article: '+article.titre /}
+
+<!--   //Dseign de page basé surhttps://ooomf.com/how-it-works --> 
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="col-md9">
+            <h1 class="text-center">${article.titre}</h1>
+        </div>
+        
+        <p class="text-center">Auteur:${article.auteur} - Date: ${article.formatDate()}</p>
+        <hr>
+        <div class="span6 well">
+            ${article.texte}
+        </div>
+    
+    </div>
+</div>
